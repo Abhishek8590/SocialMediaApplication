@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-
+from random import sample
 
 class UserProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")
@@ -16,6 +16,20 @@ class UserProfile(models.Model):
 # profile_obj.following.all()
     def __str__(self):
         return self.user.username
+    
+    @property
+    def freind_requests(self):
+        all_profiles=UserProfile.objects.all().exclude(user=self.user)
+        following_profiles=self.following.all()
+        suggestions=set(all_profiles)-set(following_profiles)
+        if len(suggestions)>2:
+            return sample(list(suggestions),2)
+        return suggestions
+
+    def __str__(self) -> str:
+        return self.user.username
+# profile_obj.following.add(profile_obj)
+# profile_obj.following.all()
 
 # post_obj.liked_by.add(model instance) = to like a post with many to many field
 # post_obj.liked_by.all()

@@ -58,10 +58,9 @@
 
         </div>
         <div class="row d-flex justify-content-evenly">
-            <div class="col-4 text-center mt-3 swich  "><a class="btn fs-5" href=""><span><i
-                            class="fa-solid fa-book"></i></span> Time line</a></div>
-            <div class="col-4 text-center mt-3 swich "><a class="btn fs-5" href=""><span><i
-                            class="fa-solid fa-users"></i></span>Followers {{profile.followed_by.all | length}}</a>
+            <div class="col-4 text-center mt-3 swich  "><a class="btn fs-5" href=""><span><i 
+                class="fa-solid fa-book"></i></span> Time line</a></div>
+            <div class="col-4 text-center mt-3 swich "><button class="btn fs-5" href=""><span> <i class="fa-solid fa-users"></i></span>Followers {{profile.followed_by.all | length}}</button>
             </div>
             <div class="col-4 text-center mt-3  "><a class="btn fs-5" href=""><span><i
                             class="fa-solid fa-user"></i></span> Following {{profile.following.all | length}}</a></div>
