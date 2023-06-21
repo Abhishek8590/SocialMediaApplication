@@ -9,7 +9,7 @@
   <title>Document</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'css/list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/profilelist.css' %}">
   <link rel="stylesheet" href="{% static 'css/srch.css' %}">
   
 
@@ -84,7 +84,7 @@
         {%if profile.profile_pic%}
         <div class="card-image">
           <img src="{{ profile.profile_pic.url }}" alt="Profile image">
-      </div>
+        </div>
         {%endif%}
         <a href="{% url 'profile-detail' profile.id %}"><p class="name">{{profile}}</p></a>
         <p>{{ profile.bio }}</p>

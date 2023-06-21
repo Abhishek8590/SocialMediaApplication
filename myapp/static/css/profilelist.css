@@ -1,0 +1,153 @@
+body {
+    /* min-height: 100vh; */
+    width: 100%;
+    background-color: #e4e4e4;
+    display: flex;
+    
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* padding: 40px 16px; */
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    margin:  56px 24px;
+    margin-top: 140px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.5),
+    0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+    width: 100%;
+    transform: scale(1.2);
+}
+
+p {
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.name {
+    margin-top: 80px;
+    font-size: 1.4em;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: 12px 8px;
+    width: 100px;
+    height: 44px;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button i {
+    color: #fff;
+    font-size: 1.4em;
+}
+
+/* Social media colors */
+button.github {
+    background-color: #24292e;
+    color: #fff;
+    font-weight: 300;
+} 
+
+button.twitter {
+    background-color: #1da1f2;
+}
+
+button.pinterest {
+    background-color: #d3263a;
+} 
+
+
+
+
+
+    /* Media queries for responsive styling */
+
+    /* Small devices (mobile phones) */
+    @media (max-width: 576px) {
+      /* Style for small screens */
+      .w3-bar-item.w3-button {
+        padding: 8px;
+      }
+      .search-box {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .search-box input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .search-box button[type="submit"] {
+        width: 100%;
+      }
+    }
+
+    /* Medium devices (tablets) */
+    @media (min-width: 577px) and (max-width: 992px) {
+      /* Style for medium screens */
+      .w3-bar-item.w3-button {
+        padding: 12px;
+      }
+    }
+
+    /* Large devices (desktops) */
+    @media (min-width: 993px) {
+      /* Style for large screens */
+      .w3-bar-item.w3-button {
+        padding: 16px;
+      }
+    }
+
+.srch{
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.fin{
+    height: 63px;
+}
