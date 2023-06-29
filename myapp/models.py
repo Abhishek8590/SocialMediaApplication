@@ -5,9 +5,10 @@ from random import sample
 
 class UserProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")
-    profile_pic=models.ImageField(upload_to="profilepics",null=True,blank=True, default="static/images/avatar3.jpg")
+    profile_pic=models.ImageField(upload_to="profilepics",null=True,blank=True, default="static/images/avatar3.png")
     bio=models.CharField(max_length=200,null=True)
     dob=models.DateTimeField(null=True)
+     # symmetrical=false means  user followed person not possible to automatically refollow
     following=models.ManyToManyField("self",related_name="followed_by",symmetrical=False)
     created_date=models.DateTimeField(auto_now_add=True)
     cover_pic=models.ImageField(upload_to="coverpic",blank=True,default="/profilepics/cover.jpg")
