@@ -35,3 +35,9 @@ class CoverPicForm(forms.ModelForm):
     class Meta:
         model=UserProfile
         fields=["cover_pic"]
+
+class PassResetForm(forms.Form):
+    username=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control"}))
+    email=forms.EmailField(widget=forms.EmailInput(attrs={"class":"form-control"}))
+    password1=forms.CharField(label="new password", widget=forms.PasswordInput(attrs={"class":"form-control"}))
+    password2=forms.CharField(label="confirm new password",widget=forms.PasswordInput(attrs={"class":"form-control"}))

@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from myapp.forms import SignUpForm, LoginForm, ProfileEditForm, PostForm, CoverPicForm
+from myapp.forms import SignUpForm, LoginForm, ProfileEditForm, PostForm, CoverPicForm,PassResetForm
 from django.contrib.auth.models import User
 from django.views.generic import CreateView, FormView, TemplateView, UpdateView, ListView, DetailView
 from django.contrib import messages
@@ -67,6 +67,39 @@ class IndexView(CreateView, ListView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class PassResetView(FormView):
+    model=User
+    template_name="pass-res.html"
+    form_class=PassResetForm
+
+    def post(self,request,*args,**kwargs):
+        form=self.form_class(request.POST)
+
+        if form.is_valid():
+            username=form.cleaned_data.get("username")
+            email=form.cleaned_data.get("email")
+            pwd1=form.cleaned_data.get("password1")
+            pwd2=form.cleaned_data.get("password2")
+
+            if pwd1==pwd2:
+                try:
+                    usr=User.objects.get(username=username,email=email)
+                    usr.set_password(pwd1)
+                    usr.save()
+                    messages.success(request,"password changed")
+                    return redirect("signin")
+
+                except Exception as e:
+                    messages.error("invalid credentials")
+                    return render (request,self.template_name,{"form":form})
+            else:
+                messages.error("password mismatch")
+                return render(request,self.template_name,{"form":form})
+                    
+                    
+            
 
 @method_decorator(signin_required,name="dispatch")
 class ProfileEditView(UpdateView):
